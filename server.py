@@ -18,7 +18,7 @@ class Battlesnake(object):
         # TIP: If you open your Battlesnake URL in browser you should see this data
         return {
             "apiversion": "1",
-            "author": "",  # TODO: Your Battlesnake Username
+            "author": "t",  # TODO: Your Battlesnake Username
             "color": "#888888",  # TODO: Personalize
             "head": "default",  # TODO: Personalize
             "tail": "default",  # TODO: Personalize
@@ -33,7 +33,7 @@ class Battlesnake(object):
 
         print("START")
         return "ok"
-
+        return move()
     @cherrypy.expose
     @cherrypy.tools.json_in()
     @cherrypy.tools.json_out()
