@@ -8,6 +8,17 @@ This is a simple Battlesnake server written in Python.
 For instructions see https://github.com/BattlesnakeOfficial/starter-snake-python/README.md
 """
 
+class Coordinates(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def getMagnitude(self, other):
+        len_x = other.x - self.x
+        len_y = other.y - self.y
+        mag = len_x**2 + len_y**2
+        mag = mag**0.5
+        return mag
 
 class Battlesnake(object):
     @cherrypy.expose
@@ -20,8 +31,8 @@ class Battlesnake(object):
             "apiversion": "1",
             "author": "Tai",  # TODO: Your Battlesnake Username
             "color": "#9d03fc",  # TODO: Personalize
-            "head": "beluga",  # TODO: Personalize
-            "tail": "freckle",  # TODO: Personalize
+            "head": "shac-caffeine",  # TODO: Personalize
+            "tail": "freckled",  # TODO: Personalize
         }
 
     @cherrypy.expose
@@ -30,7 +41,7 @@ class Battlesnake(object):
         # This function is called everytime your snake is entered into a game.
         # cherrypy.request.json contains information about the game that's about to be played.
         data = cherrypy.request.json
-
+        print (data)
         print("START")
         return "ok"
 
@@ -43,12 +54,15 @@ class Battlesnake(object):
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
 
-        # Choose a random direction to move in
-        possible_moves = ["up", "down", "left", "right"]
-        move = random.choice(possible_moves)
 
-        print(f"MOVE: {move}")
-        return {"move": move}
+
+
+        # Choose a random direction to move in
+        #possible_moves = ["up", "down", "left", "right"]
+        #move = random.choice(possible_moves)
+
+        #print(f"MOVE: {move}")
+        #return {"move": move}
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
