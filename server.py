@@ -41,7 +41,6 @@ class Battlesnake(object):
         # This function is called everytime your snake is entered into a game.
         # cherrypy.request.json contains information about the game that's about to be played.
         data = cherrypy.request.json
-        print (data)
         print("START")
         return "ok"
 
@@ -53,7 +52,8 @@ class Battlesnake(object):
         # Valid moves are "up", "down", "left", or "right".
         # TODO: Use the information in cherrypy.request.json to decide your next move.
         data = cherrypy.request.json
-
+        board = Coordinates(data['board'][height], data['board'][width])
+        print (data)
 
 
 
