@@ -20,6 +20,9 @@ class Coordinates(object):
         mag = mag**0.5
         return mag
 
+    def __str__(self):
+        
+
 class Battlesnake(object):
     @cherrypy.expose
     @cherrypy.tools.json_out()
@@ -51,8 +54,10 @@ class Battlesnake(object):
         # This function is called on every turn of a game. It's how your snake decides where to move.
         # Valid moves are "up", "down", "left", or "right".
         # TODO: Use the information in cherrypy.request.json to decide your next move.
+        moves = {'up': 0, 'down': 0, 'left': 0, 'right: 0'}
         data = cherrypy.request.json
-        board = Coordinates(data['board'][height], data['board'][width])
+        board = Coordinates(data['board']['height'], data['board']['width'])
+        print(board)
         print (data)
 
 
