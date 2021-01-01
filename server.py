@@ -21,7 +21,7 @@ class Coordinates(object):
         return mag
 
     def __str__(self):
-        print (x, y)    
+        print (self.x, self.y)    
 
 class Battlesnake(object):
     @cherrypy.expose
