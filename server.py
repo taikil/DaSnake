@@ -69,7 +69,7 @@ class Battlesnake(object):
         moves = {'up': 0, 'down': 0, 'left': 0, 'right': 0}
         data = cherrypy.request.json
         board = Coordinates(data['board']['height'], data['board']['width'])
-        head = Coordinates(data['head']['x'], data['head'], ['y'])
+        head = Coordinates(data['head']['x'], data['head']['y'])
         print (head)
         if head.getX() == (board.getX() - 1):
             moves['up'] = -1
