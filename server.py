@@ -84,7 +84,7 @@ class Battlesnake(object):
         #move = random.choice(possible_moves)
         most = max(moves.values())
         for k in moves:
-            if moves[k] = most:
+            if moves[k] == most:
                 move = k
                 return move
 
