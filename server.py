@@ -71,6 +71,7 @@ class Battlesnake(object):
         board = Coordinates(data['board']['height'], data['board']['width'])
         move = moves[0]
         head = Coordinates(data['head']['x'], data['head'], ['y'])
+        print (head)
         if head.getX() == (board.getX() - 1):
             moves['up'] = -1
         if head.getX() == 0:
