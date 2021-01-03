@@ -82,7 +82,7 @@ class Battlesnake(object):
         #possible_moves = ["up", "down", "left", "right"]
         #move = random.choice(possible_moves)
         
-        move = max(moves, key=moves.get)
+        move = max(moves, key=moves.get())
         return {'move': move}
 
     @cherrypy.expose
