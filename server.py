@@ -33,7 +33,7 @@ class Coordinates(object):
         return self.y
 
     def __str__(self):
-        print (self.x, self.y)    
+        print (self.x + " " + self.y)    
 
 class Battlesnake(object):
     @cherrypy.expose
@@ -70,7 +70,6 @@ class Battlesnake(object):
         data = cherrypy.request.json
         board = Coordinates(data['board']['height'], data['board']['width'])
         head = Coordinates(data['you']['head']['x'], data['you']['head']['y'])
-        print (head)
         if head.getX() == (board.getX() - 1):
             moves['up'] = -1
         if head.getX() == 0:
@@ -82,11 +81,9 @@ class Battlesnake(object):
         # Choose a random direction to move in
         #possible_moves = ["up", "down", "left", "right"]
         #move = random.choice(possible_moves)
-        most = max(moves.values())
-        for k in moves:
-            if moves[k] == most:
-                move = k
-                return {'move': move}
+        
+        move = max(moves, key=moves.get)
+        return {'move': move}
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
