@@ -20,6 +20,18 @@ class Coordinates(object):
         mag = mag**0.5
         return mag
 
+    def setX(self, x):
+        self.x = x
+
+    def setY(self, y):
+        self.y = y
+    
+    def getX(self):
+        return self.x
+
+    def getY(self):
+        return self.y
+
     def __str__(self):
         print (self.x, self.y)    
 
@@ -57,17 +69,21 @@ class Battlesnake(object):
         moves = {'up': 0, 'down': 0, 'left': 0, 'right': 0}
         data = cherrypy.request.json
         board = Coordinates(data['board']['height'], data['board']['width'])
-        print(board)
-        print (data)
-
-
-
+        move = moves[0]
+        head = Coordinates(data['head']['x'], data['head'], ['y'])
+        if head.getX() == (board.getX() - 1):
+            moves['up'] = -1
+        if head.getX() == 0:
+            moves['down'] = -1
+        if head.getY() == board.getY() - 1:
+            moves['right'] = -1
+        if head.getY() == 0:
+            moves['left'] = -1
         # Choose a random direction to move in
         #possible_moves = ["up", "down", "left", "right"]
         #move = random.choice(possible_moves)
-
+        return max(moves.values())
         #print(f"MOVE: {move}")
-        #return {"move": move}
 
     @cherrypy.expose
     @cherrypy.tools.json_in()
