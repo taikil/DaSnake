@@ -32,8 +32,8 @@ class Coordinates(object):
     def getY(self):
         return self.y
 
-    def __str__(self):
-        print (str(self.x) + " " + str(self.y))    
+    #def __str__(self):
+        #print (str(self.x) + " " + str(self.y))    
 
 class Battlesnake(object):
     @cherrypy.expose
@@ -83,7 +83,8 @@ class Battlesnake(object):
         #move = random.choice(possible_moves)
         
         move = max(moves.items(), key=operator.itemgetter(1))[0]
-        print (head)
+        print (head.getX())
+        print (head.getY())
         print (move)
         return {'move': move}
     @cherrypy.expose
