@@ -33,7 +33,7 @@ class Coordinates(object):
         return self.y
 
     def __str__(self):
-        print (self.x + " " + self.y)    
+        print (str(self.x) + " " + str(self.y))    
 
 class Battlesnake(object):
     @cherrypy.expose
