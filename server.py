@@ -70,13 +70,13 @@ class Battlesnake(object):
         data = cherrypy.request.json
         board = Coordinates(data['board']['height'], data['board']['width'])
         head = Coordinates(data['you']['head']['x'], data['you']['head']['y'])
-        if head.getX() == (board.getX() - 1):
+        if head.getY() == (board.getY() - 1):
             moves['up'] = -1
-        if head.getX() == 0:
-            moves['down'] = -1
-        if head.getY() == board.getY() - 1:
-            moves['right'] = -1
         if head.getY() == 0:
+            moves['down'] = -1
+        if head.getX() == board.getX() - 1:
+            moves['right'] = -1
+        if head.getX() == 0:
             moves['left'] = -1
         # Choose a random direction to move in
         #possible_moves = ["up", "down", "left", "right"]
