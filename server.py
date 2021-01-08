@@ -1,6 +1,6 @@
 import os
 import random
-
+import operator
 import cherrypy
 
 """
@@ -82,7 +82,7 @@ class Battlesnake(object):
         #possible_moves = ["up", "down", "left", "right"]
         #move = random.choice(possible_moves)
         
-        move = max(moves.iterkeys(), key=(lambda key: moves[key]))
+        move = max(moves.items(), key=operator.itemgetter(1))[0]
         return {'move': move}
 
     @cherrypy.expose
