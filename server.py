@@ -83,8 +83,8 @@ class Battlesnake(object):
         #move = random.choice(possible_moves)
         
         move = max(moves.items(), key=operator.itemgetter(1))[0]
+        print (move)
         return {'move': move}
-
     @cherrypy.expose
     @cherrypy.tools.json_in()
     def end(self):
